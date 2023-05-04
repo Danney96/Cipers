@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Försök3", "Försök3\Försök3.csproj", "{6F86B8AA-E4DA-486E-8F4B-F51B748CD5C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Försök3", "Försök3\Försök3.csproj", "{6F86B8AA-E4DA-486E-8F4B-F51B748CD5C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datalager", "Datalager\Datalager.csproj", "{4DB450A2-9C7B-4B39-9AF3-F6F9D8FC15BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entiteter", "Entiteter\Entiteter.csproj", "{117F952A-7A33-4C60-AE30-59FCE69E88CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6F86B8AA-E4DA-486E-8F4B-F51B748CD5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F86B8AA-E4DA-486E-8F4B-F51B748CD5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F86B8AA-E4DA-486E-8F4B-F51B748CD5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB450A2-9C7B-4B39-9AF3-F6F9D8FC15BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB450A2-9C7B-4B39-9AF3-F6F9D8FC15BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB450A2-9C7B-4B39-9AF3-F6F9D8FC15BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB450A2-9C7B-4B39-9AF3-F6F9D8FC15BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117F952A-7A33-4C60-AE30-59FCE69E88CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117F952A-7A33-4C60-AE30-59FCE69E88CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117F952A-7A33-4C60-AE30-59FCE69E88CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117F952A-7A33-4C60-AE30-59FCE69E88CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

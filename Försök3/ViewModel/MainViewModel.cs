@@ -1,6 +1,7 @@
 ﻿using Försök3.Commands;
 using Försök3.Models;
-using Försök3.Klasser;
+using Datalager;
+using Entiteter;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
