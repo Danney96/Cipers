@@ -10,9 +10,8 @@
         MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen">
 
     <Grid Margin="0,-12,0,0">
-        <DataGrid x:Name="byxGridd" Height="100" Width="205" ItemsSource="{Binding byxGarderob}"
-                      AutoGenerateColumns="True">
-        </DataGrid>
+        <DataGrid x:Name="byxGridd" ItemsSource="{Binding byxGarderob}"
+                      AutoGenerateColumns="True" Margin="298,123,204,198"/>
 
     </Grid>
 </Window>
