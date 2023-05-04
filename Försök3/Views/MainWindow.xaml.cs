@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Försök3.Klasser;
 
-namespace Försök3
+namespace Försök3.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

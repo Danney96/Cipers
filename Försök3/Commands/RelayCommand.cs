@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Försök3
+namespace Försök3.Commands
 {
     public class RelayCommand : CommandBase
     {
