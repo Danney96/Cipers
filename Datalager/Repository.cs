@@ -1,12 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Datalager
 {
-    internal class Repository
+
+    public class Repository<T> //operations only needed for this version of CarPool's use cases implemented
+       where T : class
     {
+        internal KlädKontext context;
+        internal DbSet<T> dbSet;
+
+        public Repository(KlädKontext context)
+        {
+            this.context = context;
+            dbSet = context.Set<T>();
+        }
+
+        /// <summary>
+        ///  Add a new entity to the Table.
+        /// </summary>
+        /// <param name="entity"></param>
+        public void Add(T entity)
+        {
+            dbSet.Add(entity);
+        }
+
+
+        /// <summary>
+        ///  Find a set of entities that match a predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public IEnumerable<T> Find(Func<T, bool> predicate)
+        {
+            return dbSet.Where(predicate);
+        }
+
+
+        /// <summary>
+        ///  Find the first entity that match a predicate.
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public T FirstOrDefault(Func<T, bool> predicate)
+        {
+            return dbSet.FirstOrDefault(predicate);
+        }
+
+        /// <summary>
+        /// see EF lazy/eager-loading: if we e.g query database for all Reservations, and we want to load/access/"include" e.g all it's Members-references at the same time 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="includes"></param>
+        /// <returns></returns>
+        public T FirstOrDefault(Func<T, bool> predicate, params Expression<Func<T, object>>[] includes)
+        {
+            var query = dbSet.AsQueryable();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query.FirstOrDefault(predicate);
+        }
+
     }
 }
