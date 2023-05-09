@@ -1,6 +1,5 @@
 ﻿using Entiteter;
 
-
 namespace Datalager
 {
 
@@ -61,5 +60,4 @@ namespace Datalager
             context.SaveChanges();
         }
     }
-}
 }

@@ -27,7 +27,7 @@ namespace Datalager
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json", true, true) //appsettings.json typically used for entityframeworkcore
                     .Build()                                     //don't forget set "copy if newer" on appsettings.json to be included in build 
-                    .GetConnectionString("SecondHandKläder"));
+                    .GetConnectionString("Secondhandkläder"));
 
             //this "hardcoded" version can be used aswell, but better parctice to put connectionstring in a setting/config-file
             //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CarPool;Trusted_Connection=True;");
@@ -37,6 +37,9 @@ namespace Datalager
 
         private void resetSeed()
         {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+
             #region Byxor
             Byxor.Add(new Byxor("M", "Slim", 1001, "Blå", 499.50f, new DateTime(2022, 4, 1), "Levi's", "510 Skinny Fit", true, Kön.Man));
             Byxor.Add(new Byxor("S", "Loose", 1002, "Grön", 349.00f, new DateTime(2022, 2, 14), "H&M", "Loose Fit", false, Kön.Kvinna));

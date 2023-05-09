@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Datalager;
+using Entiteter;
+
 namespace Affärslager
 {
-    internal class AnnonsKontroller
+    public class Kontroller
     {
 
     }
+        
 }

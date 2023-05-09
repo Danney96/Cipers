@@ -19,43 +19,24 @@ namespace Datalager
             dbSet = context.Set<T>();
         }
 
-        /// <summary>
-        ///  Add a new entity to the Table.
-        /// </summary>
-        /// <param name="entity"></param>
+
         public void Add(T entity)
         {
             dbSet.Add(entity);
         }
 
 
-        /// <summary>
-        ///  Find a set of entities that match a predicate.
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
         public IEnumerable<T> Find(Func<T, bool> predicate)
         {
             return dbSet.Where(predicate);
         }
 
 
-        /// <summary>
-        ///  Find the first entity that match a predicate.
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
         public T FirstOrDefault(Func<T, bool> predicate)
         {
             return dbSet.FirstOrDefault(predicate);
         }
 
-        /// <summary>
-        /// see EF lazy/eager-loading: if we e.g query database for all Reservations, and we want to load/access/"include" e.g all it's Members-references at the same time 
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <param name="includes"></param>
-        /// <returns></returns>
         public T FirstOrDefault(Func<T, bool> predicate, params Expression<Func<T, object>>[] includes)
         {
             var query = dbSet.AsQueryable();
@@ -65,6 +46,26 @@ namespace Datalager
             }
             return query.FirstOrDefault(predicate);
         }
+
+        public bool Remove(T entity)
+        {
+            return table.Remove(entity);
+        }
+
+        public bool IsEmpty()
+        {
+            return table.Count == 0;
+        }
+
+        internal Repository()
+        {
+            if (table == null)
+            {
+                table = new List<T>();
+            }
+        }
+
+        private static IList<T> table;
 
     }
 }
