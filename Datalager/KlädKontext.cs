@@ -1,6 +1,7 @@
 ﻿using Entiteter;
 using Entiteter.Enums;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
 namespace Datalager
@@ -10,19 +11,20 @@ namespace Datalager
         //database tables to create
         public DbSet<Annons> Annons { get; set; }
         public DbSet<Byxor> Byxor { get; set; }
-        public DbSet<Jeans> Jeans { get; set; }
+        public DbSet<Jeans> Jeans { get; set; }     
         public DbSet<Skor> Skor { get; set; }
         public DbSet<Tröja> Tröja { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", true, true) //appsettings.json typically used for entityframeworkcore
-                    .Build()                                     //don't forget set "copy if newer" on appsettings.json to be included in build 
-                    .GetConnectionString("Cipers"));
-
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
+            optionsBuilder
+                .UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
+                    
+                //.SetBasePath(Directory.GetCurrentDirectory())
+                //.AddJsonFile("appsettings.json", true, true) 
+                //.Build()                                   
+               //.GetConnectionString("Cipers"));
+            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
 
             base.OnConfiguring(optionsBuilder);
         }
