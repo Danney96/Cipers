@@ -15,7 +15,6 @@ namespace Entiteter
         private string EfterNamn { get; set; }
         public string Alias { get; set; }
         public string Kommun { get; set; }
-
         public string Plats { get; set; }
         public int PostNummer { get; set; }
         

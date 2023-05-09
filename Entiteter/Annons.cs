@@ -13,12 +13,13 @@ namespace Entiteter
     {
         
         public Person SkapadAv { get; set; }
-        public string Kategori { get; set; }
-        public Klädesplagg Rubrik { get; set; }
+
+        public string Kategori;
+
+        public string Underkategori;
         public Klädesplagg Storlek { get; set; }
         public Skick Skick { get; set; }
-        public string AnnonsBeskrivning { get; set; }
-        public float AnnonseratPris {get; set; }
+        public float AnnonsPris {get; set; }
         public Person Plats { get; set; }
         public Person Kommun { get; set; }
         public Person PostNummer { get; set; }
@@ -27,7 +28,6 @@ namespace Entiteter
         public Klädesplagg Kön { get; set; }
         public bool Postas { get; set; }
 
-    
         
     }
 }

@@ -11,7 +11,7 @@
 
     <Grid Margin="0,-12,0,0">
         <DataGrid x:Name="byxGridd" ItemsSource="{Binding byxGarderob}"
-                      AutoGenerateColumns="True" Margin="298,123,204,198"/>
+                      AutoGenerateColumns="True" Margin="480,26,22,295"/>
 
     </Grid>
 </Window>
