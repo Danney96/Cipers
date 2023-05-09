@@ -12,18 +12,14 @@ namespace Affärslager
 
     public class Kontroller
     {
+        public UnitOfWork unitofwork = new UnitOfWork();
         public Kontroller() { }
-        public UnitOfWork UnitOfWork
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         public void Kör()
         {
+            
             KlädKontext DbContext = new KlädKontext();
+            DbContext.Database.EnsureDeleted();
             DbContext.Database.EnsureCreated();
         }
     }

@@ -8,10 +8,8 @@
         mc:Ignorable="d"
         Title="Garderob" Height="auto" Width="auto"
         MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
 
-    <Grid Margin="0,-12,0,0">
-        <DataGrid x:Name="byxGridd" ItemsSource="{Binding byxGarderob}"
-                      AutoGenerateColumns="True" Margin="480,26,22,295"/>
-
-    </Grid>
 </Window>

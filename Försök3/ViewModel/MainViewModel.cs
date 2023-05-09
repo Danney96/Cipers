@@ -16,15 +16,10 @@ namespace Försök3.ViewModel
     {
         private Kontroller kontroller;
 
-        private ObservableCollection<Byxor> xByxor = null!;
-        public ObservableCollection<Byxor> XByxor { get => xByxor; set { xByxor = value; OnPropertyChanged(); } }
-
         public MainViewModel()
         {
             kontroller = new Kontroller();
             kontroller.Kör();
-
-            XByxor = new ObservableCollection<Byxor>();
         }
     }
 }

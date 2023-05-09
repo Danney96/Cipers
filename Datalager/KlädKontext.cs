@@ -6,37 +6,41 @@ using Microsoft.Extensions.Configuration;
 
 namespace Datalager
 {
-    public class KlädKontext : DbContext //this is the database session/connection
+    public class KlädKontext : DbContext
     {
-        //database tables to create
-        public DbSet<Annons> Annons { get; set; }
-        public DbSet<Byxor> Byxor { get; set; }
-        public DbSet<Jeans> Jeans { get; set; }     
-        public DbSet<Skor> Skor { get; set; }
-        public DbSet<Tröja> Tröja { get; set; }
+
+        public KlädKontext() { }
+        public KlädKontext(DbContextOptions<KlädKontext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-                .UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
-                    
-                //.SetBasePath(Directory.GetCurrentDirectory())
-                //.AddJsonFile("appsettings.json", true, true) 
-                //.Build()                                   
-               //.GetConnectionString("Cipers"));
-            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
 
             base.OnConfiguring(optionsBuilder);
         }
-        public KlädKontext()
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Seed();
-            Database.EnsureCreated();
+            modelBuilder.Entity<Jeans>()
+              .HasKey(e => e.PlaggID);
+
+            modelBuilder.Populate();
         }
+
+
+
+        public DbSet<Klädesplagg> Klädesplagg { get; set; } = null!;
+        public DbSet<Annons> Annons { get; set; } = null!;
+        public DbSet<Byxor> Byxor { get; set; } = null!;
+        public DbSet<Jeans> Jeans { get; set; } = null!;
+        public DbSet<Skor> Skor { get; set; } = null!;
+        public DbSet<Tröja> Tröja { get; set; } = null!; 
+        
+
+
 
         public void Seed()
         {
-            
 
             #region Byxor
             Byxor.Add(new Byxor("M", "Slim", 1001, "Blå", 499.50f, new DateTime(2022, 4, 1), "Levi's", "510 Skinny Fit", true, Kön.Man));
