@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Datalager\Datalager.csproj" />
+    <ProjectReference Include="..\Affärslager\Affärslager.csproj" />
     <ProjectReference Include="..\Entiteter\Entiteter.csproj" />
   </ItemGroup>
 

@@ -14,31 +14,27 @@ namespace Datalager
         public DbSet<Skor> Skor { get; set; }
         public DbSet<Tröja> Tröja { get; set; }
 
-        public KlädKontext()
-        {
-            //INSTRUCTION: Run program once and make a login (might "freeze" ~10 sec, just wait), close down, then comment resetSeed()-line below away. Then the database will be presistent onwards 
-
-            resetSeed(); //uncomment to (re)create database & fill/seed example data
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json", true, true) //appsettings.json typically used for entityframeworkcore
                     .Build()                                     //don't forget set "copy if newer" on appsettings.json to be included in build 
-                    .GetConnectionString("Secondhandkläder"));
+                    .GetConnectionString("Cipers"));
 
-            //this "hardcoded" version can be used aswell, but better parctice to put connectionstring in a setting/config-file
-            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CarPool;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Cipers;Trusted_Connection=True;");
 
             base.OnConfiguring(optionsBuilder);
         }
-
-        private void resetSeed()
+        public KlädKontext()
         {
-            Database.EnsureDeleted();
+            Seed();
             Database.EnsureCreated();
+        }
+
+        public void Seed()
+        {
+            
 
             #region Byxor
             Byxor.Add(new Byxor("M", "Slim", 1001, "Blå", 499.50f, new DateTime(2022, 4, 1), "Levi's", "510 Skinny Fit", true, Kön.Man));
