@@ -20,6 +20,16 @@ namespace Försök3.ViewModel
         {
             kontroller = new Kontroller();
             kontroller.Kör();
+            //kontroller = new Kontroller();
+            //kontroller.LaddaData();
+
+            //RefreshCommand.Execute(null);
         }
+        private ObservableCollection<Klädesplagg> klädesplagg = null!;
+        public ObservableCollection<Klädesplagg> Klädesplaggs { get => klädesplagg; set { klädesplagg = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<Klädesplagg> person = null!;
+        public ObservableCollection<Klädesplagg> Persons { get => person; set { person = value; OnPropertyChanged(); } }
+
     }
 }
