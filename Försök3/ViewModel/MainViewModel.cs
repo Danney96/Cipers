@@ -16,8 +16,14 @@ namespace Försök3.ViewModel
     {
         private Kontroller kontroller;
 
+        private ObservableCollection<Klädesplagg> klädesplagg = null!;
+        public ObservableCollection<Klädesplagg> Klädesplaggs { get => klädesplagg; set { klädesplagg = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<Klädesplagg> person = null!;
+        public ObservableCollection<Klädesplagg> Persons { get => person; set { person = value; OnPropertyChanged(); } }
         public MainViewModel()
         {
+
             kontroller = new Kontroller();
             kontroller.Kör();
         }

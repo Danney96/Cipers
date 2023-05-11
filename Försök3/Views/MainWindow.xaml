@@ -12,4 +12,19 @@
         <vm:MainViewModel />
     </Window.DataContext>
 
+    <StackPanel>
+        <StackPanel>
+            <Label Margin="10,10,0,0" VerticalAlignment="Top">Välj person:</Label>
+            <ComboBox x:Name="comboPerson" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Person}"
+                      DisplayMemberPath="PersonnummerID" SelectedValuePath="PersonnummerID"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Margin="10,10,0,0" VerticalAlignment="Top">Välj klädesplagg:</Label>
+            <ComboBox x:Name="comboPlagg" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Klädesplagg}"
+                      DisplayMemberPath="ProduktNamn" SelectedValuePath="ProduktNamn"/>
+        </StackPanel>
+        <Button Width="120" Height="20" HorizontalAlignment="Left" Margin="10,20,0,0" Click="Button_Click">Generera annons</Button>
+    </StackPanel>
+
 </Window>
