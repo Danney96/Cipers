@@ -24,14 +24,20 @@ namespace Entiteter
         public float AnnonsPris { get; set; }
         public bool Postas { get; set; }
         public Skick Skick { get; set; }
+
+        [NotMapped]
         public Klädesplagg Storlek { get; set; }
+        [NotMapped]
         public Klädesplagg Rubrik { get; set; }
 
 
-
+        [NotMapped]
         public Person SkapadAv { get; set; }
+        [NotMapped]
         public Person Plats { get; set; }
+        [NotMapped]
         public Person Kommun { get; set; }
+        [NotMapped]
         public Person PostNummer { get; set; }
 
         
@@ -56,5 +62,7 @@ namespace Entiteter
             PostNummer = postNummer;
             Kön = kön;
         }
+        public Annons()
+        { }
     }
 }

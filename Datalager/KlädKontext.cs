@@ -21,8 +21,8 @@ namespace Datalager
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Jeans>()
-              .HasKey(e => e.PlaggID);
+            //modelBuilder.Entity<Jeans>()
+            //  .HasKey(e => e.PlaggID);
 
             modelBuilder.Populate();
         }

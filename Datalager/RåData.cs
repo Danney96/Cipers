@@ -13,6 +13,8 @@ namespace Datalager
 
                 );
 
+
+
             //modelBuilder.Entity<Byxor>().HasNoKey(
 
 

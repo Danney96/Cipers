@@ -20,7 +20,8 @@ namespace Entiteter
         public string Kommun { get; set; }
         public string Plats { get; set; }
         public int PostNummer { get; set; }
-        
+
+        [NotMapped]
         public List<Annons> AktivaAnnonser { get; set; }
 
         public int AnnonsHistorik { get; set; }

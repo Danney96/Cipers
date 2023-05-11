@@ -50,6 +50,7 @@ namespace Datalager
             TröjaRepository = new Repository<Tröja>(context);
             JeansRepository = new Repository<Jeans>(context);
             KlädesplaggRepository = new Repository<Klädesplagg>(context);
+            AnnonsRepository = new Repository<Annons>(context);
         }
 
         /// <summary>
