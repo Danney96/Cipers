@@ -28,5 +28,6 @@ namespace Entiteter
             Annonserad = annonserad;
             Kön = kön;
         }
+        public Tröja() { }
     }
 }

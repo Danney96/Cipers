@@ -22,6 +22,10 @@ namespace Entiteter
         public string ProduktNamn { get; set; }
         public bool Annonserad { get; set; }
         public Kön Kön { get; set; }
+        public Klädesplagg()
+        {
+
+        }
 
     }
 

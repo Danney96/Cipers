@@ -6,10 +6,10 @@ namespace Datalager
     public class UnitOfWork
     {
         private KlädKontext context;
-        public Repository<Klädesplagg> KlädesplaggRepository
-        {
-            get; private set;
-        }
+        //public Repository<Klädesplagg> KlädesplaggRepository
+        //{
+        //    get; private set;
+        //}
 
         public Repository<Jeans> JeansRepository
         {
@@ -49,7 +49,7 @@ namespace Datalager
             PersonRepository = new Repository<Person>(context);
             TröjaRepository = new Repository<Tröja>(context);
             JeansRepository = new Repository<Jeans>(context);
-            KlädesplaggRepository = new Repository<Klädesplagg>(context);
+            //KlädesplaggRepository = new Repository<Klädesplagg>(context);
         }
 
         /// <summary>
