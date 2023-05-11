@@ -27,5 +27,6 @@ namespace Entiteter
             Annonserad = annonserad;
             Kön = kön;
         }
+        public Byxor() { }
     }
 }
