@@ -29,70 +29,70 @@ namespace Försök3.Views
             
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    // Välj en person från ComboBoxen
-        //    var selectedPerson = (Person)comboPerson.SelectedItem;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //// Välj en person från ComboBoxen
+            //var selectedPerson = (Person)comboPerson.SelectedItem;
 
-        //    // Välj en klädesplagg från ComboBoxen
-        //    var selectedKlädesplagg = (Klädesplagg)comboPlagg.SelectedItem;
+            //// Välj en klädesplagg från ComboBoxen
+            //var selectedKlädesplagg = (Klädesplagg)comboPlagg.SelectedItem;
 
-        //    // Skapa en ny annons med personens personnummer som skapad av attributet
-        //    var newAnnons = new Annons
-        //    {
-        //        SkapadAv = selectedPerson.PersonNummerID,
-        //        Kategori = "Kläder",
-        //        Underkategori = selectedKlädesplagg.Typ,
-        //        Beskrivning = $"Säljer {selectedKlädesplagg.Produktnamn}",
-        //        AnnonsDatum = DateTime.Now,
-        //        Rubrik = $"Säljer {selectedKlädesplagg.Produktnamn}",
-        //        Annonspris = selectedKlädesplagg.Nypris / 2,
-        //        Skick = "Bra"
-        //    };
+            //// Skapa en ny annons med personens personnummer som skapad av attributet
+            //var newAnnons = new Annons
+            //{
+            //    SkapadAv = selectedPerson.PersonNummerID,
+            //    Kategori = "Kläder",
+            //    Underkategori = selectedKlädesplagg.Typ,
+            //    Beskrivning = $"Säljer {selectedKlädesplagg.Produktnamn}",
+            //    AnnonsDatum = DateTime.Now,
+            //    Rubrik = $"Säljer {selectedKlädesplagg.Produktnamn}",
+            //    Annonspris = selectedKlädesplagg.Nypris / 2,
+            //    Skick = "Bra"
+            //};
 
-        //    // Använd Selenium och Chrome för att logga in på Blocket.se och skapa en ny annons
-        //    var chromeOptions = new ChromeOptions();
-        //    chromeOptions.AddArguments("--disable-extensions");
-        //    chromeOptions.AddArguments("--headless");
-        //    chromeOptions.AddArguments("--disable-gpu");
-        //    chromeOptions.AddArguments("--no-sandbox");
-        //    var driver = new ChromeDriver(chromeOptions);
+            //// Använd Selenium och Chrome för att logga in på Blocket.se och skapa en ny annons
+            //var chromeOptions = new ChromeOptions();
+            //chromeOptions.AddArguments("--disable-extensions");
+            //chromeOptions.AddArguments("--headless");
+            //chromeOptions.AddArguments("--disable-gpu");
+            //chromeOptions.AddArguments("--no-sandbox");
+            //var driver = new ChromeDriver(chromeOptions);
 
-        //    driver.Navigate().GoToUrl("https://www.blocket.se/login");
+            //driver.Navigate().GoToUrl("https://www.blocket.se/login");
 
-        //    var usernameField = driver.FindElement(By.Name("username"));
-        //    usernameField.SendKeys("s2105691@student.hb.se");
+            //var usernameField = driver.FindElement(By.Name("username"));
+            //usernameField.SendKeys("s2105691@student.hb.se");
 
-        //    var passwordField = driver.FindElement(By.Name("password"));
-        //    passwordField.SendKeys("FredrikFredrik1337");
+            //var passwordField = driver.FindElement(By.Name("password"));
+            //passwordField.SendKeys("FredrikFredrik1337");
 
-        //    var loginButton = driver.FindElement(By.XPath("//button[@type='submit']"));
-        //    loginButton.Click();
+            //var loginButton = driver.FindElement(By.XPath("//button[@type='submit']"));
+            //loginButton.Click();
 
-        //    driver.Navigate().GoToUrl("https://www.blocket.se/ladda_upp_annons");
+            //driver.Navigate().GoToUrl("https://www.blocket.se/ladda_upp_annons");
 
-        //    var kategoriSelect = new SelectElement(driver.FindElement(By.Id("category-id")));
-        //    kategoriSelect.SelectByText("Kläder och skor");
+            //var kategoriSelect = new SelectElement(driver.FindElement(By.Id("category-id")));
+            //kategoriSelect.SelectByText("Kläder och skor");
 
-        //    var underkategoriSelect = new SelectElement(driver.FindElement(By.Id("subcategory-id")));
-        //    underkategoriSelect.SelectByText(selectedKlädesplagg.Typ);
+            //var underkategoriSelect = new SelectElement(driver.FindElement(By.Id("subcategory-id")));
+            //underkategoriSelect.SelectByText(selectedKlädesplagg.Typ);
 
-        //    var beskrivningField = driver.FindElement(By.Id("add-description"));
-        //    beskrivningField.SendKeys(newAnnons.Beskrivning);
+            //var beskrivningField = driver.FindElement(By.Id("add-description"));
+            //beskrivningField.SendKeys(newAnnons.Beskrivning);
 
-        //    var prisField = driver.FindElement(By.Id("add-price"));
-        //    prisField.SendKeys(newAnnons.Annonspris.ToString());
+            //var prisField = driver.FindElement(By.Id("add-price"));
+            //prisField.SendKeys(newAnnons.Annonspris.ToString());
 
-        //    var skickSelect = new SelectElement(driver.FindElement(By.Id("condition")));
-        //    skickSelect.SelectByText(newAnnons.Skick);
+            //var skickSelect = new SelectElement(driver.FindElement(By.Id("condition")));
+            //skickSelect.SelectByText(newAnnons.Skick);
 
-        //    var rubrikField = driver.FindElement(By.Id("add-headline"));
-        //    rubrikField.SendKeys(newAnnons.Rubrik);
+            //var rubrikField = driver.FindElement(By.Id("add-headline"));
+            //rubrikField.SendKeys(newAnnons.Rubrik);
 
-        //    var publiceraAnnonsButton = driver.FindElement(By.Id("post-submit"));
-        //    publiceraAnnonsButton.Click();
+            //var publiceraAnnonsButton = driver.FindElement(By.Id("post-submit"));
+            //publiceraAnnonsButton.Click();
 
-        //    driver.Quit();
-        //}
+            //driver.Quit();
+        }
     }
 }

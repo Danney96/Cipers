@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Entiteter;
+using Försök3.ViewModel;
 using System.Windows;
+using Försök3.Services;
+using Försök3.Views;
 
 namespace Försök3
 {
@@ -13,5 +11,15 @@ namespace Försök3
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Startup += (s, e) =>
+            {
+
+                WindowService.RegisterWindow<AnnonsWindowViewModel, AnnonsWindow>();
+
+
+            };
+        }
     }
 }

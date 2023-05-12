@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Försök3.ViewModel"
         xmlns:vm="clr-namespace:Försök3.ViewModel"
         mc:Ignorable="d"
-        Title="Garderob" Height="auto" Width="auto"
+        Title="Garderob" Height="410" Width="331"
         MinHeight="200" MinWidth="150" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainViewModel />
@@ -15,15 +15,34 @@
     <StackPanel>
         <StackPanel>
             <Label Margin="10,10,0,0" VerticalAlignment="Top">Välj person:</Label>
-            <ComboBox x:Name="comboPerson" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Person}"
-                      DisplayMemberPath="PersonnummerID" SelectedValuePath="PersonnummerID"/>
+            <ComboBox x:Name="comboPerson" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"  
+                      ItemsSource="{Binding Person}"
+                      DisplayMemberPath="PersonNummerID" SelectedValuePath="PersonNummerID"
+                      SelectedItem="{Binding PersonSelectedItem, Mode=TwoWay}"
+                      SelectedIndex="{Binding PersonSelectedIndex, Mode=TwoWay}"
+                      IsEnabled="{Binding IsNotModified}"/>
         </StackPanel>
 
         <StackPanel>
             <Label Margin="10,10,0,0" VerticalAlignment="Top">Välj klädesplagg:</Label>
-            <ComboBox x:Name="comboPlagg" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Klädesplagg}"
-                      DisplayMemberPath="ProduktNamn" SelectedValuePath="ProduktNamn"/>
+
+            <DataGrid x:Name="dgTillgängligaBöcker" Height="100" Width="205" HorizontalAlignment="Left"  ItemsSource="{Binding Klädesplaggs}"
+                      AutoGenerateColumns="False" SelectionMode="Single"
+                      SelectionUnit="FullRow" IsReadOnly="True"
+                      SelectedItem="{Binding KlädesplaggSelectedItem, Mode=TwoWay}"
+                      SelectedIndex="{Binding KlädesplaggSelectedIndex, Mode=TwoWay}" Background="#FFF3F1F1" GridLinesVisibility="Vertical" AlternatingRowBackground="#FFE0E0E0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ProduktNamn" Binding="{Binding ProduktNamn}" />
+                    <DataGridTextColumn Header="Varumärke" Binding="{Binding Varumärke}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
-        <Button Width="120" Height="20" HorizontalAlignment="Left" Margin="10,20,0,0" Click="Button_Click">Generera annons</Button>
+        <CheckBox Content="Blocket" Margin="10,10,0,0"/>
+        <CheckBox Content="Tradera" Margin="10,10,0,0"/>
+        <CheckBox Content="Sellpy" Margin="10,10,0,0"/>
+        <CheckBox Content="Vinted" Margin="10,10,0,0"/>
+        <CheckBox Content="Plick" Margin="10,10,0,0"/>
+        <Button Content="Skapa Annons" Width="120" Height="20" HorizontalAlignment="Left" Margin="10,20,0,0" Command ="{Binding SkapaAnnonsCommand}"></Button>
     </StackPanel>
 </Window>
+ 
