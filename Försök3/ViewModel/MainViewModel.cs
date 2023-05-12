@@ -72,6 +72,10 @@ namespace Försök3.ViewModel
         public ObservableCollection<Klädesplagg> Klädesplaggs { get => klädesplagg; set { klädesplagg = value; OnPropertyChanged(); } }
 
 
+
+        private Annons nyAnnons = null!;
+        public Annons NyAnnons { get => nyAnnons; set { nyAnnons = value; OnPropertyChanged(); } }
+
         // -------------------------------------------------------- //
 
         private ObservableCollection<Klädesplagg> valtPlagg = null!;
@@ -101,7 +105,7 @@ namespace Försök3.ViewModel
         private Person personSelectedItem = null!;
         public Person PersonSelectedItem
         {
-            get { return personSelectedItem; }//=> personSelectedItem;
+            get { return personSelectedItem; }
             set
             {
                 
@@ -143,9 +147,6 @@ namespace Försök3.ViewModel
             set
             {
                 klädesplaggSelectedItem = value; OnPropertyChanged();
-                //long id = 202305112232;
-                //Klädesplaggs = new ObservableCollection<Klädesplagg>(kontroller.Getklädesplagg(id));
-                //valtPlagg = new ObservableCollection<Klädesplagg>();
             }
         }
 
@@ -163,11 +164,17 @@ namespace Försök3.ViewModel
         private ICommand skapaAnnonsCommand = null!;
         public ICommand SkapaAnnonsCommand => skapaAnnonsCommand ??= skapaAnnonsCommand = new RelayCommand(() =>
         {
-            AnnonsWindowViewModel vy = new AnnonsWindowViewModel(Person, Klädesplaggs);
-            bool result = windowService.ShowDialog(vy);
+            NyAnnons = kontroller.SkapaAnnons(personSelectedItem, KlädesplaggSelectedItem);
+            if (NyAnnons != null)
+            {
+                
+                AnnonsWindowViewModel vy = new AnnonsWindowViewModel(NyAnnons);
+
+                bool result = windowService.ShowDialog(vy);
+
+            }
 
         });
-
 
 
         private ICommand refreshCommand = null!;
@@ -176,9 +183,9 @@ namespace Försök3.ViewModel
 
 
             Person = new ObservableCollection<Person>(kontroller.HittaPerson());
-            PersonSelectedItem = (Person.Count > 0) ? Person[0] : null!;
+            
             Klädesplaggs = new ObservableCollection<Klädesplagg>(kontroller.HittaKläder());
-            KlädesplaggSelectedItem = (Klädesplaggs.Count > 0) ? Klädesplaggs[0] : null!;
+            
             IsNotModified = true;
         });
     }

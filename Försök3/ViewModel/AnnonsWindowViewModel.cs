@@ -19,6 +19,7 @@ using Entiteter.Klasser;
 using Entiteter.InterfaceKlasser;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Windows;
+using System.Printing;
 
 namespace Försök3.ViewModel
 {
@@ -32,7 +33,13 @@ namespace Försök3.ViewModel
 
 
         public ObservableCollection<Klädesplagg> klädesplagg;
+
+
+        private Annons denAnnonsen;
+        public Annons DenAnnonsen { get => denAnnonsen; set { denAnnonsen = value; OnPropertyChanged(); } }
         public ObservableCollection<Person> person;
+
+
 
         public Person GetData()
         {
@@ -43,6 +50,7 @@ namespace Försök3.ViewModel
             }
             return minPerson;
         }
+
         
 
         private Person minPerson = null!;
@@ -52,6 +60,11 @@ namespace Försök3.ViewModel
         public AnnonsWindowViewModel()
         {
             windowService = new WindowService();
+        }
+        public AnnonsWindowViewModel(Annons tempAnnons)
+        {
+            windowService = new WindowService();
+            DenAnnonsen = tempAnnons;
         }
         public AnnonsWindowViewModel(ObservableCollection<Person> tempPerson, ObservableCollection<Klädesplagg> tempklädesplag)
         {           
@@ -90,42 +103,45 @@ namespace Försök3.ViewModel
         // Vad är den för skick
 
         //----------------------------------------//
-        private Klädesplagg storlek = null!;
-        public Klädesplagg Storlek { get => storlek; set { storlek = value; OnPropertyChanged(); } }
+        //private Klädesplagg storlek = null!;
+        //public Klädesplagg Storlek { get => storlek; set { storlek = value; OnPropertyChanged(); } }
 
-        //----------------------------------------//
-        private Klädesplagg rubrik = null!;
-        public Klädesplagg Rubrik { get => rubrik; set { rubrik = value; OnPropertyChanged(); } }
+        ////----------------------------------------//
+        //private Klädesplagg rubrik = null!;
+        //public Klädesplagg Rubrik { get => rubrik; set { rubrik = value; OnPropertyChanged(); } }
 
-        //----------------------------------------//
-        private Klädesplagg skapadAv = null!;
-        public Klädesplagg SkapadAv { get => skapadAv; set { skapadAv = value; OnPropertyChanged(); } }
+        ////----------------------------------------//
+        //private Klädesplagg skapadAv = null!;
+        //public Klädesplagg SkapadAv { get => skapadAv; set { skapadAv = value; OnPropertyChanged(); } }
 
-        //----------------------------------------//
-        private Klädesplagg plats = null!;
-        public Klädesplagg Plats { get => plats; set { plats = value; OnPropertyChanged(); } }
+        ////----------------------------------------//
+        //private Klädesplagg plats = null!;
+        //public Klädesplagg Plats { get => plats; set { plats = value; OnPropertyChanged(); } }
 
-        //----------------------------------------//
-        private Klädesplagg kommun = null!;
-        public Klädesplagg Kommun { get => kommun; set { kommun = value; OnPropertyChanged(); } }
+        ////----------------------------------------//
+        //private Klädesplagg kommun = null!;
+        //public Klädesplagg Kommun { get => kommun; set { kommun = value; OnPropertyChanged(); } }
 
-        //----------------------------------------//
-        private Klädesplagg postNummer = null!;
-        public Klädesplagg PostNummer { get => postNummer; set { postNummer = value; OnPropertyChanged(); } }
+        ////----------------------------------------//
+        //private Klädesplagg postNummer = null!;
+        //public Klädesplagg PostNummer { get => postNummer; set { postNummer = value; OnPropertyChanged(); } }
 
-        //--------------IMAGE----------------------//
+        ////--------------IMAGE----------------------//
 
-        private string displayImage = null!;
-        public string DisplayImage { get => displayImage; set { displayImage = value; OnPropertyChanged(); } }
+        //private string displayImage = null!;
+        //public string DisplayImage { get => displayImage; set { displayImage = value; OnPropertyChanged(); } }
 
 
         Klädesplagg kläder = null!;
         public Klädesplagg Kläder { get => kläder; set { kläder = value; OnPropertyChanged(); } }
 
 
+        private float priset;
+        public float Priset { get => priset; set { priset = value; OnPropertyChanged(); } }
         ICommand skapaAnnonsCommand = null!;
         public ICommand SkapaAnnonsCommand => skapaAnnonsCommand ??= skapaAnnonsCommand = new RelayCommand(() =>
         {
+            kontroller.SättPris(DenAnnonsen, priset);
             MessageBox.Show("Annons Publicerad");
         });
 

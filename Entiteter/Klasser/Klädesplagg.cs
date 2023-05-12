@@ -24,6 +24,15 @@ namespace Entiteter.Klasser
         public bool Annonserad { get; set; }
         [ForeignKey("Person")]
         public long? Tillhör { get; set; }
+
+        [ForeignKey("Byxor")]
+        public string? bStorlek { get; set; } = null!;
+        [ForeignKey("Jeans")]
+        public string? Jstorlek { get; set; } = null!;
+        [ForeignKey("Skor")]
+        public int? Sstorlek { get; set; } = null!;
+        [ForeignKey("Tröja")] 
+        public string? Tstorlek { get; set; } = null!;
         public virtual Person Person { get; set; } = null!;
         
         public Kön Kön { get; set; }

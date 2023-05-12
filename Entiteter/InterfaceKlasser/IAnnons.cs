@@ -15,12 +15,14 @@ namespace Entiteter.InterfaceKlasser
         DateTime AnnonsDatum { get; set; }
 
         string Kategori { get; set; }
-
+        string? SkapadAv { get; set; }
         string Underkategori { get; set; }
-        Klädesplagg Klädesplagg { get; set; }
         int? PlaggID { get; set; }
-        Person Person { get; set; }
-        long? PersonNummerID { get; set; }
+        int? PostNr { get; set; }
+        string? Kön { get; set;  }
+        string? Rubrik { get; set; }
+        string? Kommun { get; set; }
+        string? Plats { get; set; }
         string Beskrivning { get; set; }
         float AnnonsPris { get; set; }
         bool Postas { get; set; }

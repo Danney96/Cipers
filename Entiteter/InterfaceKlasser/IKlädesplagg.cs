@@ -20,5 +20,13 @@ namespace Entiteter.InterfaceKlasser
         bool Annonserad { get; set; }
         Person Person { get; set; }
         Kön Kön { get; set; }
+
+        string? bStorlek { get; set; }
+
+        string? Jstorlek { get; set; }
+
+        int? Sstorlek { get; set; }
+
+        string? Tstorlek { get; set; }
     }
 }

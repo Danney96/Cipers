@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -6,8 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Datalager;
 using Datalager.IRepository;
+using Entiteter.Enums;
+using Entiteter.InterfaceKlasser;
 using Entiteter.Klasser;
 using Microsoft.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Affärslager
 {
@@ -40,7 +44,7 @@ namespace Affärslager
         public void LaddaData()
         {
             KlädKontext DbContext = new KlädKontext();
-            DbContext.Reset();
+            //DbContext.Reset();
             DbContext.Database.EnsureCreated();
         }
         public IList<Klädesplagg> Getklädesplagg(long pNR)
@@ -116,6 +120,43 @@ namespace Affärslager
         //        return bikbok;
         //    }
         //}
+
+        public Annons SkapaAnnons(Person person, Klädesplagg plagg)
+        {
+
+            using (UnitOfWork unit = new UnitOfWork())
+            {
+                List<Annons> annonser = new List<Annons>();
+                Annons annons = new Annons()
+                {
+                    AnnonsDatum = DateTime.Now,
+                    AnnonsPris = default,
+                    Kategori = "Personligt",
+                    Underkategori = "Kläder&Skor",
+                    Beskrivning = plagg.Varumärke,
+                    Postas = true,
+                    Storlek = plagg.Jstorlek,
+                    Rubrik = plagg.ProduktNamn,
+                    SkapadAv = person.Alias,
+                    Plats = person.Plats,
+                    Kommun = person.Kommun,
+                    PostNr = person.PostNummer,
+                    Kön = plagg.Kön.ToString()
+
+                };
+
+                annonser.Add(annons);
+                unit.Annons.Add(annons);
+                unit.Complete();
+                return annons;
+            }
+
+            
+        }
+        public void SättPris(Annons annonsen, float pris)
+        {
+            annonsen.AnnonsPris = pris;
+        }
     }
 
         

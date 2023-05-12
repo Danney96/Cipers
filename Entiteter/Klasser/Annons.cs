@@ -17,23 +17,33 @@ namespace Entiteter.Klasser
         public int AnnonsId { get; set; }
         public DateTime AnnonsDatum { get; set; }
 
+        public string? Storlek { get; set; } = null!;
+
         public string Kategori { get; set; } = null!;
 
+        public string? Rubrik { get; set; } = null!;
+
         public string Underkategori { get; set; } = null!;
+        
         [ForeignKey("Klädesplagg")]
-        public int? PlaggID { get; set; }
+        public int? PlaggID { get; set; } = null!;
         public virtual Klädesplagg Klädesplagg { get; set; } = null!;
         [ForeignKey("Person")]
-        public long? PersonNummerID { get; set; }
-        public virtual Person Person { get; set; } = null!;
-        
-        public string Beskrivning { get; set; } = null!;
+        public string? SkapadAv { get; set; } = null!;
+
+        public string? Plats { get; set; } = null!;
+
+        public string? Kommun { get; set; } = null!;
+        public int? PostNr { get; set; } = null!;
+        public string? Kön  { get; set; } = null!;
+        public string? Beskrivning { get; set; } = null!;
         public float AnnonsPris { get; set; }
         public bool Postas { get; set; }
         public Skick Skick { get; set; }
+  
 
-        
-        
+
+
 
         //[NotMapped]
         //public Person SkapadAv { get; set; }
@@ -66,7 +76,7 @@ namespace Entiteter.Klasser
         //    PostNummer = postNummer;
         //    Kön = kön;
         //}
-        //public Annons()
-        //{ }
+        public Annons()
+       { }
     }
 }

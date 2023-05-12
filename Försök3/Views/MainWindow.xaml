@@ -18,7 +18,7 @@
             <ComboBox x:Name="comboPerson" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"  
                       ItemsSource="{Binding Person}"
                       DisplayMemberPath="PersonNummerID" SelectedValuePath="PersonNummerID"
-                      SelectedItem="{Binding PersonSelectedItem, Mode=TwoWay}"
+                      SelectedItem="{Binding PersonSelectedItem}"
                       SelectedIndex="{Binding PersonSelectedIndex, Mode=TwoWay}"
                       IsEnabled="{Binding IsNotModified}"/>
         </StackPanel>
@@ -29,7 +29,7 @@
             <DataGrid x:Name="dgTillgängligaBöcker" Height="100" Width="205" HorizontalAlignment="Left"  ItemsSource="{Binding Klädesplaggs}"
                       AutoGenerateColumns="False" SelectionMode="Single"
                       SelectionUnit="FullRow" IsReadOnly="True"
-                      SelectedItem="{Binding KlädesplaggSelectedItem, Mode=TwoWay}"
+                      SelectedItem="{Binding KlädesplaggSelectedItem}"
                       SelectedIndex="{Binding KlädesplaggSelectedIndex, Mode=TwoWay}" Background="#FFF3F1F1" GridLinesVisibility="Vertical" AlternatingRowBackground="#FFE0E0E0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ProduktNamn" Binding="{Binding ProduktNamn}" />

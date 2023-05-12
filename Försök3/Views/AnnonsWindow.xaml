@@ -32,23 +32,22 @@
             </DockPanel>
             <StackPanel HorizontalAlignment="Center">
                 <Label>Rubrik</Label>
-                <TextBox Text="addidas orginal" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
+                <TextBox Text="{Binding Path=DenAnnonsen.Rubrik}" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
                 <Label>Beskrivning</Label>
-                <TextBox Text="Collagetröja, stl. M, Dam, Form: Löst, Färg: Röd
-" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
+                <TextBox Text="{Binding Path=DenAnnonsen.Beskrivning}" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
                 <Label>Pris</Label>
-                <TextBox Text ="" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
+                <TextBox Text="{Binding Path=Priset, Mode=TwoWay}" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" DataContext="{Binding DenAnnonsen}">
                 <Label HorizontalAlignment="Center">Personlig Information</Label>
                 <Label>Namn</Label>
-                <TextBox Text="Erik Felinn" x:Name="Namn" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
+                <TextBox Text="{Binding SkapadAv}" x:Name="Namn" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
                 <Label>Kommun</Label>
-                <TextBox Text="Borås" x:Name="Kommun" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
+                <TextBox Text="{Binding Kommun}" x:Name="Kommun" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue" ></TextBox>
                 <Label>Adress</Label>
-                <TextBlock Text="Elfsborg" x:Name="Adress" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBlock>
+                <TextBlock Text="{Binding Plats}" x:Name="Adress" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBlock>
                 <Label>Postnummer</Label>
-                <TextBox Text="50190" x:Name="Postnummer" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
+                <TextBox Text="{Binding PostNr}" x:Name="Postnummer" Height="25" Width="300" HorizontalAlignment="Left" Background="LightBlue"></TextBox>
                 <Border Height="50" Width="100" Background= "DarkGreen" HorizontalAlignment="Center" Margin="10, 10,10,10">
                     <Button Content="Publicera Annons" Command="{Binding SkapaAnnonsCommand}"></Button>
                 </Border>
