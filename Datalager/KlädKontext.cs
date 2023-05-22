@@ -21,15 +21,20 @@ namespace Datalager
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+<<<<<<< HEAD
 
+=======
+            //modelBuilder.Entity<Jeans>()
+            //  .HasKey(e => e.PlaggID);
+>>>>>>> a5330c4a2c769925bebf82d60354aca7b59ffd2b
 
             modelBuilder.Populate();
         }
 
 
 
-        public DbSet<Klädesplagg> Klädesplagg { get; set; } = null!;
-        public DbSet<Annons> Annons { get; set; } = null!;
+        //public DbSet<Klädesplagg> Klädesplagg { get; set; } = null!;
+        //public DbSet<Annons> Annons { get; set; } = null!;
         public DbSet<Byxor> Byxor { get; set; } = null!;
         public DbSet<Jeans> Jeans { get; set; } = null!;
         public DbSet<Skor> Skor { get; set; } = null!;

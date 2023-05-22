@@ -1,6 +1,7 @@
 ﻿using Entiteter.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -12,9 +13,15 @@ namespace Entiteter
 {
     public class Annons
     {
+<<<<<<< HEAD
         
         public int? AnnonsId{ get; set; }
         public DateTime? AnnonsDatum { get; set; }
+=======
+        [Key]
+        public int AnnonsId{ get; set; }
+        public DateTime AnnonsDatum { get; set; }
+>>>>>>> a5330c4a2c769925bebf82d60354aca7b59ffd2b
 
         public string? Kategori;
 
@@ -36,9 +43,25 @@ namespace Entiteter
         [NotMapped] public Person? PostNummer { get; set; }
 
 
+<<<<<<< HEAD
 
         [NotMapped] public Klädesplagg? Kön { get; set; }
+=======
+        [ForeignKey("Alias")]
+        public Person SkapadAv { get; set; }
+        [ForeignKey("Plats")]
+        public Person Plats { get; set; }
+        [ForeignKey("Kommun")]
 
+        public Person Kommun { get; set; }
+        [ForeignKey("PostNummer")]
+        public Person PostNummer { get; set; }
+>>>>>>> a5330c4a2c769925bebf82d60354aca7b59ffd2b
+
+        public Annons()
+        {
+
+        }
         public Annons()
         {
 
