@@ -44,7 +44,7 @@ namespace Affärslager
         public void LaddaData()
         {
             KlädKontext DbContext = new KlädKontext();
-            //DbContext.Reset();
+            DbContext.Reset();
             DbContext.Database.EnsureCreated();
         }
         public IList<Klädesplagg> Getklädesplagg(long pNR)
